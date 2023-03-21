@@ -85,7 +85,7 @@ model_fit <- function(matrix, folds, hyper) {
   
 }
 
-shap_fit <- function(model, matrix, vars, cats, combine = '+') {
+shap_fit <- function(model, matrix, vars, cats = NULL, combine = '+') {
   
   shap <- data.table(predict(model, matrix, predcontrib = TRUE))
   
