@@ -78,4 +78,4 @@ setnames(shap, names(shap), c('Variable', 'Value'))
 shap[, Score := t(predict(model, as.matrix(table), predcontrib = TRUE))]
 shap <- shap[c(nrow(shap), 1:(nrow(shap) - 1))]
 plogis(sum(shap$Score))
-waterfall(values = round(cumsum(shap$Score), 5), labels = shap$Variable)
+waterfall(values = round(shap$Score, 5), labels = shap$Variable)
